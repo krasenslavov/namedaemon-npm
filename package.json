@@ -1,0 +1,55 @@
+{
+	"name": "namedaemon",
+	"version": "0.1.0",
+	"description": "Client and CLI for NameDaemon: .com domain availability, brandability scores, name ideas, TLD costs and domain health.",
+	"type": "module",
+	"main": "./src/index.js",
+	"types": "./src/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./src/index.d.ts",
+			"default": "./src/index.js"
+		},
+		"./package.json": "./package.json"
+	},
+	"bin": {
+		"namedaemon": "bin/namedaemon.js"
+	},
+	"files": [
+		"src",
+		"bin",
+		"README.md",
+		"LICENSE",
+		"CHANGELOG.md"
+	],
+	"scripts": {
+		"test": "node --test test/*.test.js",
+		"test:live": "NAMEDAEMON_LIVE=1 node --test test/*.test.js"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"keywords": [
+		"domain",
+		"domain-name",
+		"domain-availability",
+		"whois",
+		"rdap",
+		"dns",
+		"tld",
+		"brand-name",
+		"name-generator",
+		"namedaemon",
+		"cli"
+	],
+	"author": "Krasen Slavov",
+	"license": "MIT",
+	"homepage": "https://namedaemon.com",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/krasenslavov/namedaemon-js.git"
+	},
+	"bugs": {
+		"url": "https://github.com/krasenslavov/namedaemon-js/issues"
+	}
+}

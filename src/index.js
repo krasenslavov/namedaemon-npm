@@ -1,7 +1,7 @@
 // NameDaemon client for the public REST layer (https://namedaemon.com/wp-json/nd/v1).
 // Zero dependencies; needs the built-in fetch (Node 18+, browsers, Deno, Bun).
 
-export const VERSION = '0.1.0';
+export const VERSION = '0.1.1';
 export const DEFAULT_BASE_URL = 'https://namedaemon.com/wp-json/nd/v1';
 
 export class NameDaemonError extends Error {

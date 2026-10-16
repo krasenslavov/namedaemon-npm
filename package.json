@@ -47,9 +47,9 @@
 	"homepage": "https://namedaemon.com",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/krasenslavov/namedaemon-js.git"
+		"url": "git+https://github.com/krasenslavov/namedaemon-npm.git"
 	},
 	"bugs": {
-		"url": "https://github.com/krasenslavov/namedaemon-js/issues"
+		"url": "https://github.com/krasenslavov/namedaemon-npm/issues"
 	}
 }

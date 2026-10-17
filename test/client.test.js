@@ -26,6 +26,15 @@ test('rate builds the query and sends a User-Agent', async () => {
 	assert.match(f.calls[0].init.headers['User-Agent'], /^namedaemon-js\//);
 });
 
+test('an API key is sent as X-ND-API-Key, and only when there is one', async () => {
+	const f = mock(200, { name: 'example' });
+	await new NameDaemon({ fetch: f, apiKey: 'nd_live_abc' }).rate('example');
+	assert.equal(f.calls[0].init.headers['X-ND-API-Key'], 'nd_live_abc');
+	const g = mock(200, { name: 'example' });
+	await new NameDaemon({ fetch: g }).rate('example');
+	assert.equal('X-ND-API-Key' in g.calls[0].init.headers, !!process.env.NAMEDAEMON_API_KEY);
+});
+
 test('arrays are comma joined and empty params dropped', async () => {
 	const f = mock(200, { results: [] });
 	await new NameDaemon({ fetch: f }).tldCheck('nova', ['com', 'io']);

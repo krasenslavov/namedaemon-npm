@@ -7,6 +7,8 @@ export interface NameDaemonOptions {
 	retries?: number;
 	fetch?: typeof fetch;
 	userAgent?: string;
+	/** A Pro+ or Business API key; defaults to the NAMEDAEMON_API_KEY environment variable. */
+	apiKey?: string;
 }
 
 export class NameDaemonError extends Error {

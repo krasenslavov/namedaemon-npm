@@ -1,7 +1,7 @@
 // NameDaemon client for the public REST layer (https://namedaemon.com/wp-json/nd/v1).
 // Zero dependencies; needs the built-in fetch (Node 18+, browsers, Deno, Bun).
 
-export const VERSION = '0.1.0';
+export const VERSION = '0.2.0';
 export const DEFAULT_BASE_URL = 'https://namedaemon.com/wp-json/nd/v1';
 
 export class NameDaemonError extends Error {
@@ -40,6 +40,7 @@ export class NameDaemon {
 	 * @param {number} [options.retries]  Retries on HTTP 429 (waits retryAfter, max 60 s each), default 0.
 	 * @param {typeof fetch} [options.fetch]  Custom fetch implementation.
 	 * @param {string} [options.userAgent]  Sent where the runtime allows it (Node, Deno, Bun).
+	 * @param {string} [options.apiKey]  A Pro+ or Business API key (sent as X-ND-API-Key). Defaults to the NAMEDAEMON_API_KEY environment variable when there is one.
 	 */
 	constructor(options = {}) {
 		this.baseUrl = (options.baseUrl || DEFAULT_BASE_URL).replace(/\/+$/, '');
@@ -47,6 +48,7 @@ export class NameDaemon {
 		this.retries = options.retries ?? 0;
 		this._fetch = options.fetch || globalThis.fetch;
 		this.userAgent = options.userAgent || `namedaemon-js/${VERSION}`;
+		this.apiKey = options.apiKey || (typeof process !== 'undefined' && process.env && process.env.NAMEDAEMON_API_KEY) || '';
 		if (typeof this._fetch !== 'function') {
 			throw new NameDaemonError('No fetch available. Use Node 18+ or pass options.fetch.');
 		}
@@ -55,6 +57,9 @@ export class NameDaemon {
 	async _request(method, path, { params, json } = {}) {
 		const url = `${this.baseUrl}/${path.replace(/^\/+/, '')}${toQuery(params)}`;
 		const headers = { Accept: 'application/json', 'User-Agent': this.userAgent };
+		if (this.apiKey) {
+			headers['X-ND-API-Key'] = this.apiKey;
+		}
 		const init = { method, headers };
 		if (json !== undefined) {
 			headers['Content-Type'] = 'application/json';

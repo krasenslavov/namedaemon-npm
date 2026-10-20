@@ -1,6 +1,6 @@
 {
 	"name": "namedaemon",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "Client and CLI for NameDaemon: .com domain availability, brandability scores, name ideas, TLD costs and domain health.",
 	"type": "module",
 	"main": "./src/index.js",
@@ -47,9 +47,9 @@
 	"homepage": "https://namedaemon.com",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/krasenslavov/namedaemon-npm.git"
+		"url": "git+https://github.com/namedaemon/namedaemon-npm.git"
 	},
 	"bugs": {
-		"url": "https://github.com/krasenslavov/namedaemon-npm/issues"
+		"url": "https://github.com/namedaemon/namedaemon-npm/issues"
 	}
 }

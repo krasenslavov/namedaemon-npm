@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+- Repository, issues and changelog links point to the new GitHub organization (github.com/namedaemon). No code changes.
+
 ## 0.2.0
 
 - `apiKey` option (or the `NAMEDAEMON_API_KEY` environment variable): sends a Pro+ or Business API key as `X-ND-API-Key`, so calls use that key's own allowance instead of the per-address limit. Without a key nothing changes.

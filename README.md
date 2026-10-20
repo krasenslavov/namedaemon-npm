@@ -79,7 +79,7 @@ Please keep usage reasonable. For bulk work, see the paid plan at https://nameda
 ## Links
 
 - Website and free tools: https://namedaemon.com
-- Issues: https://github.com/krasenslavov/namedaemon-npm/issues
+- Issues: https://github.com/namedaemon/namedaemon-npm/issues
 - Python version: `pip install namedaemon`
 - Developer page: https://namedaemon.com/developers/
 
